@@ -9,7 +9,7 @@ export default function fetchCountries(name) {
   return fetch(
     `${BASE_URL}${END_POINT}${name}?capital,currencies,name.official,population,flags.svg,languages`
   ).then(res => {
-    if (res.ok === false) {
+    if (!res.ok) {
       Notify.failure('Oops, there is no country with that name');
     }
     return res.json();
